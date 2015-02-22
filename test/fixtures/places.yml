@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country_id: 1
+  name: MyString
+  detail: MyText
+  souvenir: MyString
+
+two:
+  country_id: 1
+  name: MyString
+  detail: MyText
+  souvenir: MyString
