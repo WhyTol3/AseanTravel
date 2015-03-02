@@ -1,10 +1,13 @@
 class Country < ActiveRecord::Base
-  structure do
-    name  :string
-    description :string
-    image :string
+	# attr_accessible :name, :description, :image
+	has_many :places
 
-    timestamps
-  end
+	structure do
+		name  :string
+		description :string
+		image :string
+
+		timestamps
+	end
 end
 
