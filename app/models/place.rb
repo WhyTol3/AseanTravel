@@ -1,13 +1,19 @@
 class Place < ActiveRecord::Base
 
-	# attr_accessible :country_id, :name, :detail, :souvenir
-	belongs_to :country
+	has_many :place_images
+	has_many :souvenirs
 	has_many :comments, as: :commentable
 	
+	belongs_to :country
+
+	accepts_nested_attributes_for :place_images, :souvenirs
+
 	structure do
 		country_id :integer
 		name     :string
 		detail   :text
+		lat	:float
+  		log	:float		
 
 		timestamps
 	end

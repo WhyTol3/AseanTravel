@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302174644) do
+ActiveRecord::Schema.define(version: 20150304113204) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -65,15 +65,36 @@ ActiveRecord::Schema.define(version: 20150302174644) do
     t.datetime "created_at"
   end
 
+  create_table "place_images", force: :cascade do |t|
+    t.string   "image",      limit: 255
+    t.integer  "place_id",   limit: 4
+    t.datetime "updated_at"
+    t.datetime "created_at"
+  end
+
+  add_index "place_images", ["place_id"], name: "index_place_images_on_place_id", using: :btree
+
   create_table "places", force: :cascade do |t|
     t.integer  "country_id", limit: 4
     t.string   "name",       limit: 255
     t.text     "detail",     limit: 65535
     t.datetime "updated_at"
     t.datetime "created_at"
+    t.float    "lat",        limit: 24
+    t.float    "log",        limit: 24
   end
 
   add_index "places", ["country_id"], name: "index_places_on_country_id", using: :btree
+
+  create_table "souvenirs", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "image",      limit: 255
+    t.integer  "place_id",   limit: 4
+    t.datetime "updated_at"
+    t.datetime "created_at"
+  end
+
+  add_index "souvenirs", ["place_id"], name: "index_souvenirs_on_place_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -88,6 +109,10 @@ ActiveRecord::Schema.define(version: 20150302174644) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "f_name",                 limit: 255
+    t.string   "l_name",                 limit: 255
+    t.string   "username",               limit: 255
+    t.string   "tel",                    limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
