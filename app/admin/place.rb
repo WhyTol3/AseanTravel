@@ -4,7 +4,10 @@ ActiveAdmin.register Place do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :country_id, :name, :detail, :lat, :log
+  permit_params :country_id, :name, :detail, :lat, :log,
+                place_images_attributes: [:image, :_destroy],
+                souvenirs_attributes: [:name, :image, :_destroy]
+
   #
   # or
   #
@@ -19,12 +22,12 @@ ActiveAdmin.register Place do
       f.input :country
     end
 
-    f.inputs 'Details' do 
+    f.inputs 'Details' do
       f.input :name
       f.input :detail
     end
 
-    f.inputs 'Lat & Long' do 
+    f.inputs 'Lat & Long' do
       f.input :lat
       f.input :log
     end
