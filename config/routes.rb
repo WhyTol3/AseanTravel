@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'asean#index'
 
+  get 'about' => 'asean#about'
+  get 'contact' => 'asean#contact'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
