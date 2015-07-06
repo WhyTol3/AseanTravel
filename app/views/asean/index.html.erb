@@ -44,62 +44,13 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <div class="row">
-      <div class="col-md-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag.png" alt="">
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag1.png" alt="">
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag2.png" alt="">
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag3.png" alt="">
-        </a>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag4.png" alt="">
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag2.png" alt="">
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag4.png" alt="">
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag.png" alt="">
-        </a>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3 col-md-offset-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag1.png" alt="">
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a class="link-flag hvr-shadow-radial" href="#">
-          <img class="flag" src="assets/flag3.png" alt="">
-        </a>
-      </div>
+      <% @countries.each_with_index do |c, index| %>
+        <div class="col-md-3">
+          <a class="link-flag hvr-shadow-radial" href="#">
+            <%= image_tag(c.image.url, :class => 'flag') %>
+          </a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 class AseanController < ApplicationController
   def index
+  	@countries = Country.all
   end
 
   def contact
