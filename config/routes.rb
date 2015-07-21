@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {registrations: "registrations" }
+
   get 'asean/index'
-
   get 'asean/contact'
-
   get 'asean/about'
+  get 'country/index'
+  get 'country/show'
+  get 'place/index'
+  get 'place/show'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -24,7 +28,8 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    resources :country
+    resources :place
 
   # Example resource route with options:
   #   resources :products do

@@ -1,0 +1,31 @@
+// Place all the styles related to the Country controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+h3.title{
+	text-align: center;
+	// text-decoration: underline;
+}
+
+img.show-flag{
+	display: block;
+	width: 100%;
+}
+
+h5.show-place-title{
+	text-decoration: underline;
+}
+
+.show-place{
+	// border: solid 5px #5459B2;
+  // border-radius: 5px;
+  padding-bottom: 20px;
+  .panel-footer{
+  	a{
+			text-align: right;
+		  width: 100%;
+		  display: block;
+  	}
+  }
+}

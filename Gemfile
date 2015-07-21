@@ -31,6 +31,7 @@ gem 'active_skin'
 gem "carrierwave"
 gem 'mini_magick'
 gem 'puma'
+gem 'gmaps4rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

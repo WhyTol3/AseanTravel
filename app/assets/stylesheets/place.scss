@@ -1,0 +1,31 @@
+// Place all the styles related to the Place controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.show-content{
+	p{
+		text-indent: 30px;
+	}
+}
+
+.modal-content{
+	img{
+		display: block;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+.fix-height{
+	overflow: hidden;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+a.drop-image{
+	img{
+		display: block;
+		height: 100px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

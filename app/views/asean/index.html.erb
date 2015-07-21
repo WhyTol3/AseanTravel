@@ -12,30 +12,20 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
 
-      <% 4.times do |i| %>
-        <% if i == 0 %>
+      <% @images.each_with_index do |i, index| %>
+        <% if index == 0 %>
           <div class="item active">
         <% else %>
           <div class="item">
         <% end %>
-          <%= image_tag "dum#{i+1}.jpg" %>
+          <%= image_tag i.image.url %>
           <div class="carousel-caption">
-            <%= i %>
+            <% i %>
           </div>
         </div>
       <% end %>
 
     </div>
-
-    <!-- Controls -->
-   <!--  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a> -->
   </div>
   </div>
 
@@ -46,9 +36,7 @@
     <div class="row">
       <% @countries.each_with_index do |c, index| %>
         <div class="col-md-3">
-          <a class="link-flag hvr-shadow-radial" href="#">
-            <%= image_tag(c.image.url, :class => 'flag') %>
-          </a>
+          <%= link_to image_tag(c.image.url, :class => 'flag'), country_path(c), :class => "link-flag hvr-shadow-radial" %>
         </div>
       <% end %>
     </div>
@@ -65,44 +53,27 @@
 
         <div class="row">
           <div class="row">
-           <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="assets/dum1.jpg" data-holder-rendered="true" style="height: 100px; width: 100%; display: block;">
-              <div class="caption">
-                <h4>Thumbnail label</h4>
-                <p>
-                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi por...
-                </p>
-                <p><a href="#" class="btn btn-primary" role="button">อ่านต่อ</a></p>
+
+            <% @hot.each do |p| %>
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <div class="card-cover">
+                    <%= image_tag( PlaceImage.where(place_id: p.id).first.image ) %>
+                  </div>
+                  <div class="caption">
+                    <h4><%= p.name %></h4>
+                    <p>
+                      <%= truncate(p.detail, length: 50) %>
+                    </p>
+                    <%= link_to 'อ่านต่อ', place_path(p), :class => "btn btn-primary"  %>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-           <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="assets/dum3.jpg" data-holder-rendered="true" style="height: 100px; width: 100%; display: block;">
-              <div class="caption">
-                <h4>Thumbnail label</h4>
-                <p>
-                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi por...
-                </p>
-                <p><a href="#" class="btn btn-primary" role="button">อ่านต่อ</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="assets/dum2.jpg" data-holder-rendered="true" style="height: 100px; width: 100%; display: block;">
-              <div class="caption">
-                <h4>Thumbnail label</h4>
-                <p>
-                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi por...
-                </p>
-                <p><a href="#" class="btn btn-primary" role="button">อ่านต่อ</a></p>
-              </div>
-            </div>
+            <% end %>
+
           </div>
         </div>
-        </div>
+
       </div>
     </div>
   </div>
