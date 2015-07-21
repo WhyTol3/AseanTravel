@@ -49,9 +49,9 @@
 
 <div class="row end">
 	<div class="col-md-10 col-md-offset-1">
-		<!-- <div style='width: 100%;'>
+		<div style='width: 100%;'>
 			<div id="map" style='width: 100%; height: 400px;'></div>
-		</div> -->
+		</div>
 	</div>
 </div>
 
@@ -107,25 +107,25 @@
     });
   });
 
- //  handler = Gmaps.build('Google');
-	// handler.buildMap({ provider: {
-	// 	disableDefaultUI: false,
-	// 	scrollwheel: false
-	// }, internal: {id: 'map'}}, function(){
-	//   markers = handler.addMarkers([
-	//     {
-	//       "lat": <%= raw @place.lat %>,
-	//       "lng": <%= raw @place.log %>,
-	//       "picture": {
-	//         "url": "http://s13.postimg.org/6xns2oqoz/location.png",
-	//         "width":  36,
-	//         "height": 36
-	//       },
-	//       "infowindow": "<%= raw @place.name %>"
-	//     }
-	//   ]);
-	//   handler.bounds.extendWith(markers);
-	//   handler.fitMapToBounds();
-	//   handler.getMap().setZoom(14);
-	// });
+  handler = Gmaps.build('Google');
+	handler.buildMap({ provider: {
+		disableDefaultUI: false,
+		scrollwheel: false
+	}, internal: {id: 'map'}}, function(){
+	  markers = handler.addMarkers([
+	    {
+	      "lat": <%= raw @place.lat %>,
+	      "lng": <%= raw @place.log %>,
+	      "picture": {
+	        "url": "http://s13.postimg.org/6xns2oqoz/location.png",
+	        "width":  36,
+	        "height": 36
+	      },
+	      "infowindow": "<%= raw @place.name %>"
+	    }
+	  ]);
+	  handler.bounds.extendWith(markers);
+	  handler.fitMapToBounds();
+	  handler.getMap().setZoom(14);
+	});
 </script>
