@@ -117,9 +117,9 @@
 		    	<% @hotel.each_with_index do |r, index| %>
 						<div class="col-md-3 fix-height">
 		    			<!-- Small modal -->
-		    			<%= link_to image_tag(r.image.url), '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm-res#{index}" }, :class => "drop-image" %>
+		    			<%= link_to image_tag(r.image.url), '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm-hol#{index}" }, :class => "drop-image" %>
 
-							<div class="modal fade bs-example-modal-sm-res<%= index %>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+							<div class="modal fade bs-example-modal-sm-hol<%= index %>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 							  <div class="modal-dialog modal-lg">
 							    <div class="modal-content">
 							    	<div class="row">
