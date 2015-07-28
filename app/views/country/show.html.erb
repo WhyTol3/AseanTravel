@@ -31,18 +31,16 @@
 			        </div>
 			        <div class="caption">
 			          <h4><%= p.name %></h4>
-			          <p>
-			            <%= truncate(p.detail, length: 27) %>
-			          </p>
-			          <%= link_to 'อ่านต่อ', place_path(p), :class => "btn btn-primary"  %>
+								<%== p.detail %>
 			        </div>
+			          <%= link_to 'more ...', place_path(p), :class => "btn btn-primary"  %>
 			      </div>
 			    </div>
 			  <% end %>
 			</div>
 
 			<div class="panel-footer">
-				<%= link_to "more +", "#" %>
+				<%= link_to "more +", places_path(:c => @country.id) %>
 				<!-- place_index_path(:id => @country.id ) -->
 			</div>
 

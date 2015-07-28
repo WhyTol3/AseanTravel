@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'asean#index'
 
+  get 'countries' => 'country#index'
+  get 'places' => 'place#index'
+
   get 'about' => 'asean#about'
   get 'contact' => 'asean#contact'
 

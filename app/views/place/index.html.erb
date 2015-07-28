@@ -1,2 +1,30 @@
-<h1>Place#index</h1>
-<p>Find me in app/views/place/index.html.erb</p>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 place-index">
+		<h3><%= @country %></h3>
+	</div>
+</div>
+
+<% @places.each do |p| %>
+	<div class="row content-col">
+		<div class="col-md-10 col-md-offset-1 border">
+				<div class="row place-contents">
+					<div class="col-md-5 no-pad ">
+						<%= link_to( image_tag(PlaceImage.where(place_id: p.id).first.image.url), place_path(p) ) %>
+					</div>
+
+					<div class="col-md-7 right-content no-pad">
+						<h3 class="bord"><%= link_to( p.name, place_path(p) ) %> <kbd class="right"><%= p.country.name %></kbd></h3>
+						<div class="content">
+							<%== p.detail %>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+<% end %>
+
+<div class="row end">
+	<div class="col-md-10 col-md-offset-1 ">
+		<%= paginate @places %>
+	</div>
+</div>

@@ -1,10 +1,10 @@
-ActiveAdmin.register Country do
+ActiveAdmin.register Hotel do
 
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :name, :description, :image
+  # permit_params :list, :of, :attributes, :on, :model
   #
   # or
   #
@@ -14,15 +14,5 @@ ActiveAdmin.register Country do
   #   permitted
   # end
 
-  form do |f|
-    f.inputs 'Flag' do
-      f.input :image
-    end
-
-    f.inputs 'Details' do
-      f.input :name
-      f.input :description, :label => '', as: :wysihtml5
-    end
-  end
 
 end

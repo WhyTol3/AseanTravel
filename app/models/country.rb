@@ -5,7 +5,7 @@ class Country < ActiveRecord::Base
 	# mount_uploader :avatar, AvatarUploader
 	structure do
 		name  :string
-		description :string
+		description :text
 		image :string
 
 		timestamps

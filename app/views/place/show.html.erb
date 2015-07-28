@@ -42,8 +42,7 @@
 
 <div class="row">
 	<div class="col-md-10 col-md-offset-1 show-content">
-		<h4>Description</h4>
-		<p><%= @place.detail %></p>
+		<%== @place.detail %>
 	</div>
 </div>
 
@@ -59,18 +58,14 @@
 	<div class="col-md-10 col-md-offset-1">
 		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs end" role="tablist">
-		    <li role="presentation" class="active"><a href="#food" aria-controls="food" role="tab" data-toggle="tab">Food</a></li>
-		    <li role="presentation"><a href="#sou" aria-controls="sou" role="tab" data-toggle="tab">Souvenir</a></li>
+		    <li role="presentation" class="active" ><a href="#sou" aria-controls="sou" role="tab" data-toggle="tab">Souvenir</a></li>
+		    <li role="presentation"><a href="#food" aria-controls="food" role="tab" data-toggle="tab">Food</a></li>
 		    <li role="presentation"><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a></li>
 		  </ul>
 		  <!-- Tab panes -->
 		  <div class="tab-content">
 
-		    <div role="tabpanel" class="tab-pane end active" id="food">
-		    	Food...
-		    </div>
-
-		    <div role="tabpanel" class="tab-pane end" id="sou">
+		    <div role="tabpanel" class="tab-pane active end" id="sou">
 		    	<div class="row">
 
 						<% @souvenir.each_with_index do |s, index| %>
@@ -91,8 +86,58 @@
 		    	</div>
 		    </div>
 
+		    <div role="tabpanel" class="tab-pane end" id="food">
+		    	<% @resturant.each_with_index do |r, index| %>
+						<div class="col-md-3 fix-height">
+		    			<!-- Small modal -->
+		    			<%= link_to image_tag(r.image.url), '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm-res#{index}" }, :class => "drop-image" %>
+
+							<div class="modal fade bs-example-modal-sm-res<%= index %>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+							  <div class="modal-dialog modal-lg">
+							    <div class="modal-content">
+							    	<div class="row">
+							    		<div class="col-md-6 cover">
+							    			<%= image_tag(r.image.url, :class => "model-card") %>
+							    		</div>
+							    		<div class="col-md-6">
+							    			<h3><%= r.name %></h3>
+							    			<div class="des">
+													<%== r.description %>
+							    			</div>
+							    		</div>
+							    	</div>
+							    </div>
+							  </div>
+							</div>
+		    		</div>
+					<% end %>
+		    </div>
+
 		    <div role="tabpanel" class="tab-pane end" id="hotel">
-		    	Hotel...
+		    	<% @hotel.each_with_index do |r, index| %>
+						<div class="col-md-3 fix-height">
+		    			<!-- Small modal -->
+		    			<%= link_to image_tag(r.image.url), '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm-res#{index}" }, :class => "drop-image" %>
+
+							<div class="modal fade bs-example-modal-sm-res<%= index %>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+							  <div class="modal-dialog modal-lg">
+							    <div class="modal-content">
+							    	<div class="row">
+							    		<div class="col-md-6 cover">
+							    			<%= image_tag(r.image.url, :class => "model-card") %>
+							    		</div>
+							    		<div class="col-md-6">
+							    			<h3><%= r.name %></h3>
+							    			<div class="des">
+													<%== r.description %>
+							    			</div>
+							    		</div>
+							    	</div>
+							    </div>
+							  </div>
+							</div>
+		    		</div>
+					<% end %>
 		    </div>
 
 		  </div>

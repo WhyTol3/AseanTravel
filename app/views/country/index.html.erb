@@ -1,2 +1,17 @@
-<h1>Country#index</h1>
-<p>Find me in app/views/country/index.html.erb</p>
+<div class="row end">
+	<div class="col-md-10 col-md-offset-1">
+		<h3 class="title">Country</h3>
+	</div>
+</div>
+
+<div class="row end">
+	<div class="col-md-10 col-md-offset-1">
+    <div class="row">
+      <% @countries.each_with_index do |c, index| %>
+        <div class="col-md-3">
+          <%= link_to image_tag(c.image.url, :class => 'flag'), country_path(c), :class => "link-flag hvr-shadow-radial" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

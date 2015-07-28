@@ -1,18 +1,81 @@
 // Place all the styles related to the Place controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.show-content{
-	p{
-		text-indent: 30px;
+
+.place-index{
+	h3{ text-align: center; text-decoration: underline;}
+}
+
+.no-pad{ padding: 0 !important;}
+
+.content-col{
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	.border{
+		padding-top: 20px;
+		border-top: 3px solid #333;
 	}
 }
 
-.modal-content{
+nav.pagination{
+	float: right;
+}
+
+.place-contents{
+	max-height: 250px;
+	overflow: hidden;
 	img{
 		display: block;
 		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
+	}
+	h3{ margin: 0; }
+	h3.bord{
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-bottom: 15px;
+		border-bottom: 3px solid #333;
+		.right{
+			float: right;
+    	margin-top: 3%;
+    	font-size: 40%;
+		}
+	}
+	div.content{
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		line-height: 1 !important;
+		li{
+  		text-overflow: ellipsis;
+  	}
+	}
+}
+
+
+.show-content{
+	border-top: 3px solid #333;
+	border-bottom: 3px solid #333;
+	margin-top: -15px;
+	margin-bottom: 15px;
+	p{
+		text-indent: 30px;
+	}
+	h1,h2,h3,h4,h5{ margin-top: 0; }
+}
+
+.modal-content{
+	max-height: 350px;
+	overflow-x: scroll;
+	.cover{
+	  line-height: 340px;
+		display: block;
+	}
+	img{
+		display: block;
+		width: 100%;
+		margin: auto;
 	}
 }
 .fix-height{
@@ -29,3 +92,16 @@ a.drop-image{
 		margin-right: auto;
 	}
 }
+
+.model-card{
+	display: inline-block !important;
+	padding-left: 15px;
+	width: 100%;
+	margin: auto;
+	vertical-align: middle !important;
+}
+
+
+
+
+

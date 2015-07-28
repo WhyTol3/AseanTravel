@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304113204) do
+ActiveRecord::Schema.define(version: 20150728073108) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,6 +46,34 @@ ActiveRecord::Schema.define(version: 20150304113204) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "assets", force: :cascade do |t|
+    t.string   "storage_uid",          limit: 255
+    t.string   "storage_name",         limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "storage_width",        limit: 4
+    t.integer  "storage_height",       limit: 4
+    t.float    "storage_aspect_ratio", limit: 24
+    t.integer  "storage_depth",        limit: 4
+    t.string   "storage_format",       limit: 255
+    t.string   "storage_mime_type",    limit: 255
+    t.string   "storage_size",         limit: 255
+  end
+
+  create_table "bootsy_image_galleries", force: :cascade do |t|
+    t.integer  "bootsy_resource_id",   limit: 4
+    t.string   "bootsy_resource_type", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_images", force: :cascade do |t|
+    t.string   "image_file",       limit: 255
+    t.integer  "image_gallery_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text     "content",          limit: 65535
     t.integer  "user_id",          limit: 4
@@ -59,8 +87,17 @@ ActiveRecord::Schema.define(version: 20150304113204) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.string   "description", limit: 255
+    t.text     "description", limit: 65535
     t.string   "image",       limit: 255
+    t.datetime "updated_at"
+    t.datetime "created_at"
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "image",       limit: 255
+    t.string   "place_id",    limit: 255
+    t.text     "description", limit: 65535
     t.datetime "updated_at"
     t.datetime "created_at"
   end
@@ -85,6 +122,28 @@ ActiveRecord::Schema.define(version: 20150304113204) do
   end
 
   add_index "places", ["country_id"], name: "index_places_on_country_id", using: :btree
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "image",       limit: 255
+    t.string   "place_id",    limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "updated_at"
+    t.datetime "created_at"
+  end
+
+  create_table "rich_rich_files", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "rich_file_file_name",    limit: 255
+    t.string   "rich_file_content_type", limit: 255
+    t.integer  "rich_file_file_size",    limit: 4
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type",             limit: 255
+    t.integer  "owner_id",               limit: 4
+    t.text     "uri_cache",              limit: 65535
+    t.string   "simplified_type",        limit: 255,   default: "file"
+  end
 
   create_table "souvenirs", force: :cascade do |t|
     t.string   "name",       limit: 255

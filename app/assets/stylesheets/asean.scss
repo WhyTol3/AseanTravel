@@ -38,9 +38,22 @@
 }
 
 .caption{
-	h4{
-		font-size: 0.9em;
-	}
+  height: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
+	display: -webkit-box !important;
+	-webkit-box-orient: vertical !important;
+	-webkit-line-clamp: 1 !important; /* number of lines to show */
+	line-height: 1 !important;        /* fallback */
+	max-height: 1*2;
+	// margin-top: 0;
+	// margin-bottom: 0;
+  h3,h4,h5{ font-size: 0.9em; margin-top: 0; margin-bottom: 0;}
+	li{
+		// white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  }
 	p{
 		font-size: 0.8em;
 	}
@@ -59,7 +72,7 @@ a.link-flag{
 }
 
 .card-cover{
-	height: 100px;
+	height: 140px;
 	overflow: hidden;
 	img{
 		display: block;
