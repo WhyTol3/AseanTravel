@@ -23,6 +23,7 @@ ActiveAdmin.register Country do
       f.input :name
       f.input :description, :label => '', as: :wysihtml5
     end
+    actions
   end
 
 end

@@ -18,7 +18,7 @@
         <% else %>
           <div class="item">
         <% end %>
-          <%= image_tag i.image.url %>
+          <%= link_to image_tag(i.image.url), place_path(i.place.id) %>
           <div class="carousel-caption">
             <% i %>
           </div>
