@@ -62,11 +62,14 @@ class CommentPlacesController < ApplicationController
   # DELETE /comment_places/1
   # DELETE /comment_places/1.json
   def destroy
+    @comment_place = CommentPlace.find(params[:id])
     @comment_place.destroy
-    respond_to do |format|
-      format.html { redirect_to comment_places_url, notice: 'Comment place was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+      redirect_to place_path(params[:place_id])
+    # respond_to do |format|
+    #   format.html { redirect_to comment_places_url, notice: 'Comment place was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

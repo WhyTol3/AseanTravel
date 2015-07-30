@@ -58,9 +58,9 @@
 	<div class="col-md-10 col-md-offset-1">
 		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs end" role="tablist">
-		    <li role="presentation" class="active" ><a href="#sou" aria-controls="sou" role="tab" data-toggle="tab">Souvenir</a></li>
-		    <li role="presentation"><a href="#food" aria-controls="food" role="tab" data-toggle="tab">Food</a></li>
-		    <li role="presentation"><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a></li>
+		    <li role="presentation" class="active" ><a href="#sou" aria-controls="sou" role="tab" data-toggle="tab">Souvenirs</a></li>
+		    <li role="presentation"><a href="#food" aria-controls="food" role="tab" data-toggle="tab">Restaurants</a></li>
+		    <li role="presentation"><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotels</a></li>
 		  </ul>
 		  <!-- Tab panes -->
 		  <div class="tab-content ast">
@@ -151,9 +151,14 @@
 		<h4>Comments</h4>
 
 		<% @comments.each do |c| %>
-			<p class="captions"><span class="user"><%= c.user.username %></span> - <%= c.caption %> - <span class="time"><%= c.created_at.strftime("%d, %b %Y | %H:%M") %></span></p>
+			<p class="captions"><span class="user"><%= c.user.username %></span> - <%= c.caption %> - <span class="time"><%= c.created_at.strftime("%d, %b %Y | %H:%M") %></span>
+				<% if user_signed_in? && current_user.id == c.user.id  %>
+						<span class="glyphicon glyphicon-search" aria-hidden="true">
+							<%= link_to fa_icon("trash", text: "Delete"), comment_place_path(:id => c.id, :place_id => @place.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+						</span>
+				<% end %>
+			</p>
 		<% end %>
-
 	</div>
 
 	<% if user_signed_in? %>

@@ -15,12 +15,12 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
             </button>
-            <%= link_to("Asean Travel", root_path , :class => "navbar-brand") %>
+            <%= link_to("Asean Travel", '#' , :class => "navbar-brand") %>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <%= nav_link 'Home', root_path %>
-              <%= nav_link 'Country', countries_path %>
+              <% nav_link 'Country', countries_path %>
               <%= nav_link 'About', about_path %>
               <%= nav_link 'Contact', contact_path %>
             </ul>
