@@ -63,7 +63,7 @@
 		    <li role="presentation"><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a></li>
 		  </ul>
 		  <!-- Tab panes -->
-		  <div class="tab-content">
+		  <div class="tab-content ast">
 
 		    <div role="tabpanel" class="tab-pane active end" id="sou">
 		    	<div class="row">
@@ -142,6 +142,33 @@
 
 		  </div>
 	</div>
+</div>
+
+<div class="row end ">
+
+	<div class="col-md-10 col-md-offset-1 comments ast">
+
+		<h4>Comments</h4>
+
+		<% @comments.each do |c| %>
+			<p class="captions"><span class="user"><%= c.user.username %></span> - <%= c.caption %> - <span class="time"><%= c.created_at.strftime("%d, %b %Y | %H:%M") %></span></p>
+		<% end %>
+
+	</div>
+
+	<% if user_signed_in? %>
+		<div class="col-md-10 col-md-offset-1">
+			<%= form_for @comment do |f| %>
+				<%= f.hidden_field :place_id, :value => @place.id %><br />
+				<%= f.hidden_field :user_id, :value => current_user.id %><br />
+
+				<%= f.text_area :caption, :placeholder => "Comment", rows: 2, cols: 100, :class => "form-control" %> <br />
+
+				<%= f.submit 'Post', :class => "btn btn-lg btn-success" %>
+			<% end %>
+		</div>
+	<% end %>
+
 </div>
 
 <script>

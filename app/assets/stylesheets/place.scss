@@ -3,7 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .place-index{
-	h3{ text-align: center; text-decoration: underline;}
+	h3{ text-align: center; text-decoration: underline; color: #27AE60;}
+}
+
+.ast{
+	max-height: 250px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .no-pad{ padding: 0 !important;}
@@ -55,8 +61,8 @@ nav.pagination{
 
 
 .show-content{
-	border-top: 3px solid #333;
-	border-bottom: 3px solid #333;
+	border-top: 3px solid #E67E22;
+	border-bottom: 3px solid #E67E22;
 	margin-top: -15px;
 	margin-bottom: 15px;
 	p{
@@ -103,7 +109,38 @@ a.drop-image{
 	vertical-align: middle !important;
 }
 
+.comments.ast{
+	max-height: 550px;
+}
+.comments{
 
+	h4{
+		color: #27AE60;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		border-top: 3px solid #E67E22;
+		border-bottom: 3px solid #E67E22;
+	}
+	.captions{
+		text-indent: 20px;
+		span.user{
+			color: #1ABC9C;
+			text-transform:capitalize;
+		}
 
+		span.time{
+			color: #2ECC71;
+		}
+		font-size: .9em;
+		border-bottom: 1px solid #D35400;
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+	}
+}
+.new_comment_place{
+	border-top: 3px solid #E67E22;
+}
 
 

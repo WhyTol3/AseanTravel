@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :country
     resources :place
+    resources :comment_places
 
   # Example resource route with options:
   #   resources :products do

@@ -3,6 +3,7 @@ class Place < ActiveRecord::Base
 	has_many :place_images
 	has_many :souvenirs
 	has_many :hotels
+	has_many :comment_places
 	has_many :restaurants
 	has_many :comments, as: :commentable
 

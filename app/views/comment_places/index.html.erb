@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Comment Places</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comment_places.each do |comment_place| %>
+      <tr>
+        <td><%= link_to 'Show', comment_place %></td>
+        <td><%= link_to 'Edit', edit_comment_place_path(comment_place) %></td>
+        <td><%= link_to 'Destroy', comment_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment place', new_comment_place_path %>

@@ -15,5 +15,7 @@ class PlaceController < ApplicationController
   	@souvenir = Souvenir.where(place_id: params[:id]).reverse_order
     @resturant = Restaurant.where(place_id: params[:id]).reverse_order
     @hotel = Hotel.where(place_id: params[:id]).reverse_order
+    @comment = CommentPlace.new
+    @comments = CommentPlace.where(place_id: params[:id])
   end
 end

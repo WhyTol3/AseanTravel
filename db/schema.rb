@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728073108) do
+ActiveRecord::Schema.define(version: 20150730064246) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20150728073108) do
     t.datetime "updated_at"
   end
 
+  create_table "comment_places", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.text     "caption",    limit: 65535
+    t.datetime "updated_at"
+    t.datetime "created_at"
+    t.integer  "place_id",   limit: 4
+  end
+
+  add_index "comment_places", ["place_id"], name: "index_comment_places_on_place_id", using: :btree
+  add_index "comment_places", ["user_id"], name: "index_comment_places_on_user_id", using: :btree
+
   create_table "comments", force: :cascade do |t|
     t.text     "content",          limit: 65535
     t.integer  "user_id",          limit: 4
@@ -101,6 +112,8 @@ ActiveRecord::Schema.define(version: 20150728073108) do
     t.datetime "updated_at"
     t.datetime "created_at"
   end
+
+  add_index "hotels", ["place_id"], name: "index_hotels_on_place_id", using: :btree
 
   create_table "place_images", force: :cascade do |t|
     t.string   "image",      limit: 255
@@ -132,6 +145,8 @@ ActiveRecord::Schema.define(version: 20150728073108) do
     t.datetime "created_at"
   end
 
+  add_index "restaurants", ["place_id"], name: "index_restaurants_on_place_id", using: :btree
+
   create_table "rich_rich_files", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -155,23 +170,58 @@ ActiveRecord::Schema.define(version: 20150728073108) do
 
   add_index "souvenirs", ["place_id"], name: "index_souvenirs_on_place_id", using: :btree
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+  create_table "thecomments", force: :cascade do |t|
+    t.integer  "user_id",           limit: 4
+    t.integer  "holder_id",         limit: 4
+    t.integer  "commentable_id",    limit: 4
+    t.string   "commentable_type",  limit: 255
+    t.string   "commentable_url",   limit: 255
+    t.string   "commentable_title", limit: 255
+    t.string   "commentable_state", limit: 255
+    t.string   "anchor",            limit: 255
+    t.string   "title",             limit: 255
+    t.string   "contacts",          limit: 255
+    t.text     "raw_content",       limit: 65535
+    t.text     "content",           limit: 65535
+    t.string   "view_token",        limit: 255
+    t.string   "state",             limit: 255,   default: "draft"
+    t.string   "ip",                limit: 255,   default: "undefined"
+    t.string   "referer",           limit: 255,   default: "undefined"
+    t.string   "user_agent",        limit: 255,   default: "undefined"
+    t.integer  "tolerance_time",    limit: 4
+    t.boolean  "spam",              limit: 1,     default: false
+    t.integer  "parent_id",         limit: 4
+    t.integer  "lft",               limit: 4
+    t.integer  "rgt",               limit: 4
+    t.integer  "depth",             limit: 4,     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "f_name",                 limit: 255
-    t.string   "l_name",                 limit: 255
-    t.string   "username",               limit: 255
-    t.string   "tel",                    limit: 255
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                       limit: 255, default: "", null: false
+    t.string   "encrypted_password",          limit: 255, default: "", null: false
+    t.string   "reset_password_token",        limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",               limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",          limit: 255
+    t.string   "last_sign_in_ip",             limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "f_name",                      limit: 255
+    t.string   "l_name",                      limit: 255
+    t.string   "username",                    limit: 255
+    t.string   "tel",                         limit: 255
+    t.integer  "my_draft_comments_count",     limit: 4,   default: 0
+    t.integer  "my_published_comments_count", limit: 4,   default: 0
+    t.integer  "my_comments_count",           limit: 4,   default: 0
+    t.integer  "draft_comcoms_count",         limit: 4,   default: 0
+    t.integer  "published_comcoms_count",     limit: 4,   default: 0
+    t.integer  "deleted_comcoms_count",       limit: 4,   default: 0
+    t.integer  "spam_comcoms_count",          limit: 4,   default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
