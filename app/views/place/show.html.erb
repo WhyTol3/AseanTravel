@@ -69,17 +69,28 @@
 		    	<div class="row">
 
 						<% @souvenir.each_with_index do |s, index| %>
-							<div class="col-md-3 fix-height">
+							<div class="col-md-3 fix-height" style="text-align: center;">
 			    			<!-- Small modal -->
 			    			<%= link_to image_tag(s.image.url), '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm#{index}" }, :class => "drop-image" %>
+			    			<%= link_to s.name, '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm#{index}" }, :class => "drop-image" %>
 
 								<div class="modal fade bs-example-modal-sm<%= index %>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 								  <div class="modal-dialog modal-lg">
-								    <div class="modal-content">
-								      <%= image_tag(s.image.url) %>
+								    <div class="modal-content sc-modal">
+								    	<div class="row">
+								    		<div class="col-md-6 cover">
+								    			<%= image_tag(s.image.url, :class => "model-card") %>
+								    		</div>
+								    		<div class="col-md-6">
+								    			<div class="des">
+														<%== s.name %>
+								    			</div>
+								    		</div>
+								    	</div>
 								    </div>
 								  </div>
 								</div>
+
 			    		</div>
 						<% end %>
 
@@ -88,9 +99,10 @@
 
 		    <div role="tabpanel" class="tab-pane end" id="food">
 		    	<% @resturant.each_with_index do |r, index| %>
-						<div class="col-md-3 fix-height">
+						<div class="col-md-3 fix-height" style="text-align: center;">
 		    			<!-- Small modal -->
 		    			<%= link_to image_tag(r.image.url), '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm-res#{index}" }, :class => "drop-image" %>
+		    			<%= link_to r.name, '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm-res#{index}" }, :class => "drop-image" %>
 
 							<div class="modal fade bs-example-modal-sm-res<%= index %>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 							  <div class="modal-dialog modal-lg">
@@ -115,9 +127,10 @@
 
 		    <div role="tabpanel" class="tab-pane end" id="hotel">
 		    	<% @hotel.each_with_index do |r, index| %>
-						<div class="col-md-3 fix-height">
+						<div class="col-md-3 fix-height" style="text-align: center;">
 		    			<!-- Small modal -->
 		    			<%= link_to image_tag(r.image.url), '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm-hol#{index}" }, :class => "drop-image" %>
+		    			<%= link_to r.name, '#', :data => { :toggle => "modal", :target => ".bs-example-modal-sm-hol#{index}" }, :class => "drop-image" %>
 
 							<div class="modal fade bs-example-modal-sm-hol<%= index %>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 							  <div class="modal-dialog modal-lg">

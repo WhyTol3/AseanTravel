@@ -1,5 +1,5 @@
 <div class="row end" style="background-color:#ECF0F1; padding-bottom: 20px;">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-10 col-md-offset-1">
      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -63,9 +63,9 @@
                   <div class="caption">
                     <h4><%= p.name %></h4>
                     <p>
-                      <%= truncate(p.detail, length: 50) %>
+                      <%== p.detail %>
                     </p>
-                    <%= link_to 'อ่านต่อ', place_path(p), :class => "btn btn-primary"  %>
+                    <%= link_to 'Read more', place_path(p), :class => "btn btn-primary"  %>
                   </div>
                 </div>
               </div>
