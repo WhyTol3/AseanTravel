@@ -63,7 +63,7 @@
                   <div class="caption">
                     <h4><%= p.name %></h4>
                     <p>
-                      <%== p.detail %>
+                      <%= truncate(strip_tags(p.detail), :length => 80) %>
                     </p>
                     <%= link_to 'Read more', place_path(p), :class => "btn btn-primary"  %>
                   </div>
