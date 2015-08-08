@@ -6,7 +6,7 @@ ActiveAdmin.register Place do
   #
   permit_params :country_id, :name, :detail, :lat, :log,
                 place_images_attributes: [:image, :_destroy],
-                souvenirs_attributes: [:name, :image, :_destroy],
+                souvenirs_attributes: [:name, :image, :description, :_destroy],
                 restaurants_attributes: [:name, :image, :description, :_destroy],
                 hotels_attributes: [:name, :image, :description, :_destroy]
   #

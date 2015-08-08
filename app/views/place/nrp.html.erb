@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<%= form_for @data, :url => place_crp_path(@data) do |f| %>
+
+		  <div class="form-group">
+		    <%= f.file_field :image %>
+			</div>
+
+		    <%= f.hidden_field :place_id, :value => @cid %>
+			<div class="form-group">
+		    <%= f.text_field :name, :placeholder => "Place name", :class => "form-control login-field" %>
+			</div>
+
+			<div class="form-group">
+		    <%= f.text_area :description, :placeholder => "Detail", :class => "form-control login-field" %>
+			</div>
+
+
+		  <%= f.submit "Create", :class => "btn btn-primary btn-lg btn-block" %>
+		<% end %>
+</div>
+</div>

@@ -8,3 +8,4 @@ class User < ActiveRecord::Base
 
   has_many :comment_place
 end
+# devise :database_authenticatable, :trackable, :timeoutable, :lockable

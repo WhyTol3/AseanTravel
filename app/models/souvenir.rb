@@ -8,6 +8,7 @@ class Souvenir < ActiveRecord::Base
 	 name     :string
 	 image    :string
 	 place_id :integer
+	 description :text
 
 	 timestamps
 	end
